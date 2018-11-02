@@ -3,14 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <!--引入JQ-->
+    <title>个人简历</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <!--引入bootstrap-->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--引入Vue-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <style>
@@ -55,7 +52,6 @@
 <body>
     <div class="container">
 
-        <!--简历页眉-->
         <div id="basic" class="row bg-primary">
             <div class="col-md-3 col-xs-3">
                 <img v-bind:src="photo" alt="">
@@ -72,7 +68,6 @@
         </div>
 
         <div id="content">
-            <!--项目经验-->
             <div class="row" id="program">
                 <div class="col-md-3 col-xs-3">
                     <div class="title">项目经验</div>
@@ -90,7 +85,6 @@
             </div>
             <hr>
 
-            <!--教育背景-->
             <div class="row" id="edu">
                 <div class="col-md-3 col-xs-3">
                     <div class="title">教育背景</div>
@@ -112,7 +106,6 @@
             </div>
             <hr>
 
-            <!--个人技能-->
             <div class="row" id="skill">
                 <div class="col-md-3 col-xs-3">
                     <div class="title">个人技能</div>
