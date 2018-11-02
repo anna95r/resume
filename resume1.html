@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--引入JQ-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <!--引入bootstrap-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--引入Vue-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        img {
+            height: auto;
+            width: 100%;
+            max-height: 200px;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        hr{
+            background-color: #cbddf0;
+            height: 2px;
+        }
+
+        #basic {
+            height: 200px;
+            padding: 15px auto 10px 15px;
+        }
+
+        .title {
+            width: 120px;
+            border: 2px solid #1777d6;
+            text-align: center;
+            color: #1777d6;
+            font-size: 20px;
+            padding: 10px;
+            margin: 30px auto auto 30px;
+        }
+
+        .program {
+            height: 150px;
+            overflow: hidden;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!--简历页眉-->
+        <div id="basic" class="row bg-primary">
+            <div class="col-md-3 col-xs-3">
+                <img v-bind:src="photo" alt="">
+            </div>
+            <div class="col-md-9 col-xs-9">
+                <h1>{{name}}</h1>
+                <h2>{{job}}</h2>
+                <br>
+                <h4>
+                    <span class="glyphicon glyphicon-phone"></span>&nbsp;电话号码：{{phonenumber}}&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-envelope"></span>&nbsp;邮箱：{{email}}
+                </h4>
+            </div>
+        </div>
+
+        <div id="content">
+            <!--项目经验-->
+            <div class="row" id="program">
+                <div class="col-md-3 col-xs-3">
+                    <div class="title">项目经验</div>
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <div class="row program" v-for="(item,num) in items" v-bind:key="num">
+                        <div class="col-md-3 col-xs-3 img-thumbnail center-block">
+                            <a v-bind:href="item.address" target="_blank"><img v-bind:src="item.impressionDrawing" alt=""></a>
+                        </div>
+                        <div class="col-md-9 col-xs-9">
+                            <pre>{{item.summary}}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!--教育背景-->
+            <div class="row" id="edu">
+                <div class="col-md-3 col-xs-3">
+                    <div class="title">教育背景</div>
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <div v-for="(item,num) in timeAxis" v-bind:key="num">
+                        <div class="row">
+                            <div class="col-md-4"><h4>{{item.time}}</h4></div>
+                            <div class="col-md-4"><h4>{{item.school}}</h4></div>
+                            <div class="col-md-4"><h4>{{item.major}}</h4></div>
+                        </div>
+                        <hr>
+                        <div class="">
+                            <h4>{{item.ins}}</h4>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!--个人技能-->
+            <div class="row" id="skill">
+                <div class="col-md-3 col-xs-3">
+                    <div class="title">个人技能</div>
+                </div>
+                <div class="col-md-9 col-xs-9">
+                    <div v-for="(skill,num) in skills" v-bind:key="num">
+                        <h4>{{skill}}</h4>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+        </div>
+    </div>
+</body>
+<script>
+var basicApp = new Vue({
+    el: "#basic",
+    data: {
+        photo: "",
+        name: "name",
+        job: "job intension",
+        phonenumber: "phonenumber",
+        email: "email",
+
+    }
+})
+
+var programApp = new Vue({
+    el: "#program",
+    data: {
+        items: [
+            {
+                address: "https://anna95r.github.io/exerxise/JS.html",
+                impressionDrawing: "js.png",
+                summary:`运用HTML5、CSS3构建静态网页，运用JavaScript实现图片切换`
+            },
+            {
+                address: "https://anna95r.github.io/heitu/index.html",
+                impressionDrawing: "heitu.png",
+                summary:`运用HTML5、CSS3构建静态网页
+运用bootstrap实现轮播图、页面切换效果
+运用Vue.js组件、列表渲染插入具体内容`
+            },
+        ]
+    }
+})
+
+var eduApp = new Vue({
+    el: "#edu",
+    data: {
+        timeAxis: [
+            {
+                time: "2010-2013",
+                school: "school1",
+                major: "A",
+                ins: "have the awards",
+            },
+            {
+                time: "2013-2017",
+                school: "school2",
+                major: "major2",
+                ins: "have the awards",
+            },
+        ]
+    }
+})
+
+var skillApp = new Vue({
+    el: "#skill",
+    data: {
+        skills: [
+            "熟悉使用office办公软件（Word、Excel、PowerPoint）",
+            "编程语言：HTML、CSS、JavaScript",
+            "框架：Bootstrap、Vue.js",
+            "编程环境：visual studio code、sublime text3",
+        ],
+    }
+})
+</script>
+
+</html>
